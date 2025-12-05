@@ -20,6 +20,39 @@ else:
     st.warning("No OPENAI_API_KEY found in Streamlit Secrets. You can still use demo mode outputs but LLM memos will be disabled.")
 
 # -------------------------------
+# Utilities: markdown generator
+# -------------------------------
+def markdown_from_teardown(td, title):
+    md = [f"# Product Teardown — {title}\n"]
+    md.append("## One-pager\n")
+    md.append(td.get("one_pager","") + "\n\n")
+    md.append("## Strategy\n")
+    for s in td.get("strategy",[]):
+        md.append(f"- {s}\n")
+    md.append("\n## Growth Loops\n")
+    for g in td.get("growth_loops", td.get("growthLoops", [])):
+        md.append(f"- {g}\n")
+    md.append("\n## Engagement Mechanics\n")
+    for e in td.get("engagement_mechanics", td.get("engagement", [])):
+        md.append(f"- {e}\n")
+    md.append("\n## KPIs\n")
+    md.append("```json\n")
+    md.append(json.dumps(td.get("kpis",{}), indent=2, ensure_ascii=False))
+    md.append("\n```\n")
+    md.append("\n## UX Tear-down\n")
+    for u in td.get("ux_teardown", td.get("ux", [])):
+        md.append(f"- {u}\n")
+    md.append("\n## SWOT\n")
+    md.append("```json\n")
+    md.append(json.dumps(td.get("swot",{}), indent=2, ensure_ascii=False))
+    md.append("\n```\n")
+    md.append("\n## Opportunities\n")
+    for o in td.get("opportunities",[]):
+        md.append(f"- {o}\n")
+    return "\n".join(md)
+
+    
+# -------------------------------
 # Industry fine-tuned prompt templates
 # -------------------------------
 INDUSTRY_TEMPLATES = {
