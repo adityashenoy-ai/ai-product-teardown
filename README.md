@@ -53,10 +53,10 @@ Download:
 
 📁 Project Structure
 ai-product-teardown/
-├── app.py
-├── app_single.py          (optional single teardown mode)
-├── requirements.txt
-├── README.md
+-- app.py
+-- app_single.py          (optional single teardown mode)
+-- requirements.txt
+-- README.md
 
 
 🚀 Deploy on Streamlit Cloud
