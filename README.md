@@ -51,13 +51,6 @@ Download:
 - Markdown report
 - Comparison table
 
-📁 Project Structure
-ai-product-teardown/
--- app.py
--- app_single.py          (optional single teardown mode)
--- requirements.txt
--- README.md
-
 
 🚀 Deploy on Streamlit Cloud
 - Push to GitHub
@@ -85,4 +78,9 @@ Try these pairs:
 Aditya Shenoy
 Product Strategy | AI | FinTech | Growth
 
-
+📁 Project Structure
+ai-product-teardown/
+- app.py
+- app_single.py          (optional single teardown mode)
+- requirements.txt
+- README.md
